@@ -12,8 +12,8 @@ const client = new Client({
     ]
 });
 
-const version = "1.4.0";
-const changelog = "**Changes:**\n- Added the ``/dailydeal`` command.";
+const version = "1.5.0";
+const changelog = "**Changes:**\n- Added support for displaying Season 6 content.";
 
 const dev = process.env.DEV;
 
@@ -44,6 +44,7 @@ const primaryObjectiveEmojis = {
     "Elimination": "<:el:1391450005478310038>",
     "Industrial Sabotage": "<:is:1391450035132043294>",
     "Deep Scan": "<:ds:1391450076655652944>",
+    "Heavy Excavation": "<:he:1469333884863778951>",
 };
 
 const primaryObjectiveNames = {
@@ -56,6 +57,7 @@ const primaryObjectiveNames = {
     "Elimination": "Dreadnought",
     "Industrial Sabotage": "Industrial Sabotage",
     "Deep Scan": "Deep Scan",
+    "Heavy Excavation": "Heavy Extraction",
 };
 
 const deepDiveSecondaryObjectiveEmojis = {
@@ -102,6 +104,8 @@ const warningEmojis = {
     "Rival Presence": "<:rp:1391488209233383426>",
     "Shield Disruption": "<:sd:1391488233241710784>",
     "Swarmageddon": "<:sw:1391488250803388518>",
+    "Pit Jaw Colony": "<:pc:1469334063008452822>",
+    "Scrab Nesting Grounds": "<:sn:1469334201152176241>",
 };
 
 const anomalyEmojis = {
@@ -128,6 +132,7 @@ const biomeEmojis = {
     "Azure Weald": "<:aw:1391499316316864552>",
     "Magma Core": "<:mc:1391499530956046549>",
     "Sandblasted Corridors": "<:sc:1391499639777398905>",
+    "Ossuary Depths": "<:od:1469333694312349940>",
 };
 
 const deepDiveStageEmojis = {
