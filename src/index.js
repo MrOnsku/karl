@@ -12,8 +12,8 @@ const client = new Client({
     ]
 });
 
-const version = "1.5.0";
-const changelog = "**Changes:**\n- Added support for displaying Season 6 content.";
+const version = "1.5.1";
+const changelog = "**Changes:**\n- Heavy Extraction missions now display the amount of Resinite Masses you need to extract.\n- Aquarq counts are now displayed on Point Extraction missions.\n- Fixed \"Extract Resinite Masses\" Secondary Objective showing up incorrectly.";
 
 const dev = process.env.DEV;
 
@@ -26,12 +26,18 @@ const resourceCounts = {
     'Egg Hunt,1': '4',
     'Egg Hunt,2': '6',
     'Egg Hunt,default': '8',
+    'Point Extraction,2': '7',
+    'Point Extraction,default': '10',
     'Elimination,2': '2',
     'Elimination,default': '3',
     'Salvage Operation,2': '2',
     'Salvage Operation,default': '3',
     'Deep Scan,2,1': '3',
     'Deep Scan,3,2': '5',
+    'Heavy Excavation,3,2': '3',
+    'Heavy Excavation,2,2': '3',
+    'Heavy Excavation,2,3': '4',
+    'Heavy Excavation,3,3': '4',
 };
 
 const primaryObjectiveEmojis = {
@@ -53,11 +59,11 @@ const primaryObjectiveNames = {
     "On-Site Refining": "On-Site Refining",
     "Salvage Operation": "Mule",
     "Escort Duty": "Escort Duty",
-    "Point Extraction": "Point Extraction",
+    "Point Extraction": "Aquarq",
     "Elimination": "Dreadnought",
     "Industrial Sabotage": "Industrial Sabotage",
     "Deep Scan": "Deep Scan",
-    "Heavy Excavation": "Heavy Extraction",
+    "Heavy Excavation": "Resinite Mass",
 };
 
 const deepDiveSecondaryObjectiveEmojis = {
@@ -68,6 +74,7 @@ const deepDiveSecondaryObjectiveEmojis = {
     "Black Box": "<:bb:1391451896450908203>",
     "Perform Deep Scans": "<:ds:1391450076655652944>",
     "Build Liquid Morkite Pipeline": "<:or:1391449825018646629>",
+    "Extract Resinite Masses": "<:he:1469333884863778951>",
 };
 
 const deepDiveSecondaryObjectiveNames = {
@@ -76,8 +83,9 @@ const deepDiveSecondaryObjectiveNames = {
     "Mine Morkite": "Morkite",
     "Get Alien Eggs": "Egg",
     "Black Box": "Black Box",
-    "Perform Deep Scans": "Crystal Scan",
+    "Perform Deep Scans": "Deep Scan",
     "Build Liquid Morkite Pipeline": "Morkite Well",
+    "Extract Resinite Masses": "Resinite Mass",
 };
 
 const deepDiveSecondaryObjectiveCounts = {
@@ -87,6 +95,7 @@ const deepDiveSecondaryObjectiveCounts = {
     "Get Alien Eggs": "2",
     "Perform Deep Scans": "2",
     "Build Liquid Morkite Pipeline": "1",
+    "Extract Resinite Masses": "1",
 };
 
 const warningEmojis = {
