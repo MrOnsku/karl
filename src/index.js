@@ -170,8 +170,9 @@ const mineralEmojis = {
     "Phazyonite": "<:ph:1400102034132439172>",
 }
 
-client.on("ready", (c) => {
+client.on("clientReady", (c) => {
     //bot login
+    console.log("--BOT LOG START--");
     console.log("bot is running");
     client.user.setActivity("Deep Rock Galactic", { type: ActivityType.Playing });
 });
@@ -374,6 +375,22 @@ client.on("interactionCreate", async (interaction) => {
 
         interaction.reply({ embeds: [embed] });
     }
+
+    if(interaction.context == 0){
+        if(interaction.guildId == 806906943544754187) return;
+        if(interaction.guild != null){
+            logMessage("User \"" + interaction.user.username + "\" used command \"" + command + "\" in \"" + interaction.guild.name + "\"");
+        }
+        else{
+            logMessage("User \"" + interaction.user.username + "\" used command \"" + command + "\" in an unknown server");
+        }
+    }
+    else if(interaction.context == 1){
+        logMessage("User \"" + interaction.user.username + "\" used command \"" + command + "\" in bot's DMs");
+    }
+    else if(interaction.context == 2){
+        logMessage("User \"" + interaction.user.username + "\" used command \"" + command + "\" in private DMs");
+    }
 });
 
 function getObjectiveCount(primary, complexity, length){
@@ -428,6 +445,27 @@ function formatEEST(utcString){
         timeZone: "Europe/Helsinki",
         timeZoneName: "short"
     }).format(date);
+}
+
+function logMessage(message){
+    let options = {
+        timeZone: "Europe/Helsinki",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+    };
+
+    let date = new Intl.DateTimeFormat("en-GB", options).format(new Date());
+    let logMsg = "[" + date + "] " + message.toString();
+
+    console.log(logMsg);
+
+    let logChannel = client.channels.cache.get("1418195240292192306");
+    logChannel.send("`" + logMsg + "`");
 }
 
 //start client
